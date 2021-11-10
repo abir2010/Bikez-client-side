@@ -3,7 +3,10 @@ import "./App.css";
 import Home from "./components/Home/Home/Home";
 import PlaceOrder from "./components/PlaceOrder/PlaceOrder";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
+import Products from "./components/Products/Products/Products";
 import Login from "./components/Registration/Login/Login";
+import Footer from "./components/Shared/Footer/Footer";
+import Header from "./components/Shared/Header/Header";
 import AuthProvider from "./contexts/AuthProvider";
 
 function App() {
@@ -11,12 +14,16 @@ function App() {
     <div className="App">
       <AuthProvider>
         <BrowserRouter>
+          <Header/>
           <Switch>
             <Route exact path="/">
               <Home></Home>
             </Route>
             <Route path="/home">
               <Home></Home>
+            </Route>
+            <Route path="/bikes">
+              <Products></Products>
             </Route>
             <PrivateRoute path="/placeorder">
               <PlaceOrder></PlaceOrder>
@@ -25,6 +32,7 @@ function App() {
               <Login></Login>
             </Route>
           </Switch>
+          <Footer/>
         </BrowserRouter>
       </AuthProvider>
     </div>
