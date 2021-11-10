@@ -43,7 +43,7 @@ const PlaceOrder = () => {
         if (data.insertedId) {
           alert("Successfully added to your shopping list");
           if (alert) {
-            history.push("/dashboard");
+            history.push("/dashboard/myOrders");
           }
         }
       });
