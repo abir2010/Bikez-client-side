@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import Footer from "../../Shared/Footer/Footer";
+import Header from "../../Shared/Header/Header";
 import Product from "../Product/Product";
 
 const Products = () => {
@@ -10,6 +12,7 @@ const Products = () => {
   }, []);
   return (
     <div>
+      <Header/>
       <section class="text-gray-600 body-font">
         <p className="text-4xl text-gray-900 font-bold heading lg:pt-8 pt-12">
           ALL YOUR <span className="text-red-500">BIKES</span> ARE HERE
@@ -22,6 +25,7 @@ const Products = () => {
           </div>
         </div>
       </section>
+      <Footer/>
     </div>
   );
 };

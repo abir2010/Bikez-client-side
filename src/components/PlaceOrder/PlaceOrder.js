@@ -1,17 +1,60 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 
 const PlaceOrder = () => {
+  const { user } = useAuth();
+  const { id } = useParams();
+  const history = useHistory();
+
   const [products, setProducts] = useState([]);
+
+  const initialInfo = {
+    userName: user?.displayName,
+    userEmail: user?.email,
+  };
+  const [orderInfo, setOrderInfo] = useState(initialInfo);
+
+  const handleOnBlur = (e) => {
+    const field = e.target.name;
+    const value = e.target.value;
+    const newInfo = { ...initialInfo };
+    newInfo[field] = value;
+    setOrderInfo(newInfo);
+    e.preventDefault();
+  };
+
+  const handleSubmit = (e) => {
+    const order = {
+      ...orderInfo,
+      productName: pd.name,
+      orderDate: new Date(),
+      status: "Pending",
+    };
+    fetch("http://localhost:5000/orders", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(order),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.insertedId) {
+          alert("Successfully added to your shopping list");
+          if (alert) {
+            history.push("/dashboard");
+          }
+        }
+      });
+    e.preventDefault();
+  };
+
   useEffect(() => {
     fetch("http://localhost:5000/products")
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, []);
-  const { user } = useAuth();
-  const { id } = useParams();
-
   const pd = products.find((product) => product._id == id);
 
   return (
@@ -26,7 +69,7 @@ const PlaceOrder = () => {
           <p className="text-gray-700 text-base">{pd?.description}</p>
         </div>
       </div>
-      <form className="w-full max-w-lg">
+      <form onSubmit={handleSubmit} className="w-full max-w-lg">
         <p className="text-3xl font-bold my-5">
           ORDER <span className="text-red-500">FORM</span>
         </p>
@@ -78,55 +121,34 @@ const PlaceOrder = () => {
               className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-blue-900"
               id="grid-number"
               type="number"
+              onBlur={handleOnBlur}
+              name="userPhone"
               placeholder="+96-123-456-789"
             />
           </div>
         </div>
-        <div className="flex flex-wrap -mx-3 mb-2 pb-8">
-          <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+        <div className="flex flex-wrap -mx-3 mb-6">
+          <div className="w-full px-3">
             <label
               className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-              htmlFor="grid-city"
+              htmlFor="grid-address"
             >
-              Street
+              ADDRESS
             </label>
             <input
-              className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-blue-900"
-              id="grid-city"
+              className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-blue-900"
+              id="grid-address"
               type="text"
-              placeholder="123 park st."
-            />
-          </div>
-          <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-            <label
-              className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-              htmlFor="grid-city"
-            >
-              City
-            </label>
-            <input
-              className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-blue-900"
-              id="grid-city"
-              type="text"
-              placeholder="Albuquerque"
-            />
-          </div>
-          <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-            <label
-              className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-              htmlFor="grid-zip"
-            >
-              COUNTRY
-            </label>
-            <input
-              className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-blue-900"
-              id="grid-zip"
-              type="text"
-              placeholder="United States"
+              onBlur={handleOnBlur}
+              name="userAddress"
+              placeholder="123-park st,Albaquarqe,United States"
             />
           </div>
         </div>
-        <button className="inline-flex text-gray-50 items-center bg-red-500 border-0 py-2 mb-12 px-8 focus:outline-none hover:bg-blue-900 mt-4 md:mt-0 lg:ml-4">
+        <button
+          type="submit"
+          className="inline-flex text-gray-50 items-center bg-red-500 border-0 py-2 mb-12 px-8 focus:outline-none hover:bg-blue-900 mt-4 md:mt-0 lg:ml-4"
+        >
           SEND ORDER NOW
         </button>
       </form>

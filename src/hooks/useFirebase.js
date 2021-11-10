@@ -17,6 +17,7 @@ const useFirebase = () => {
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(true);
   const [isAdmin, setIsAdmin] = useState(false);
+  const [drawer, setDrawer] = useState(false)
 
   const googleProvider = new GoogleAuthProvider();
   const auth = getAuth();
@@ -92,6 +93,8 @@ const useFirebase = () => {
     error,
     isLoading,
     isAdmin,
+    drawer,
+    setDrawer,
     newUserSignUp,
     newUserSignIn,
     handleGoogleSignIn,

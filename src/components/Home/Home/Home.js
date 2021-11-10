@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import Footer from "../../Shared/Footer/Footer";
+import Header from "../../Shared/Header/Header";
 import Banner from "../Banner/Banner";
 import Product from "../Product/Product";
 import Servicing from "../Servicing/Servicing";
@@ -12,6 +14,7 @@ const Home = () => {
   }, []);
   return (
     <div>
+      <Header/>
       {/* top banner section */}
       <Banner></Banner>
       
@@ -33,6 +36,7 @@ const Home = () => {
 
       {/* servicing section */}
       <Servicing></Servicing>
+      <Footer/>
     </div>
   );
 };
