@@ -2,12 +2,12 @@ import React, { useEffect, useState } from "react";
 import SingleOrder from "../SingleOrder/SingleOrder";
 
 const AllOrders = () => {
-  const [orders,setOrders] = useState([]);
-  useEffect(()=>{
+  const [orders, setOrders] = useState([]);
+  useEffect(() => {
     fetch("http://localhost:5000/allorders")
-        .then(res=>res.json())
-        .then(data=>setOrders(data))
-  },[])
+      .then((res) => res.json())
+      .then((data) => setOrders(data));
+  }, []);
   const handleDelteBtn = (id) => {
     const dialogue = window.confirm("Want to cancel your order");
     if (!dialogue) {
@@ -25,21 +25,21 @@ const AllOrders = () => {
           }
         });
     }
-  }
+  };
   const handleApproveBtn = (id) => {
     fetch(`http://localhost:5000/orders?id=${id}`, {
-        method: "PUT",
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          if (data.matchedCount > 0) {
-            const filtered = orders.find(service=>service._id==id);
-            filtered.status = "Approved";
-            const clone = [].concat(orders);
-            setOrders(clone);
-          }
-        });
-  }
+      method: "PUT",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.matchedCount > 0) {
+          const filtered = orders.find((service) => service._id == id);
+          filtered.status = "Shipped";
+          const clone = [].concat(orders);
+          setOrders(clone);
+        }
+      });
+  };
   return (
     <div>
       <div class="flex flex-col">
@@ -73,14 +73,14 @@ const AllOrders = () => {
                   </tr>
                 </thead>
                 <tbody class="bg-white divide-y divide-gray-200">
-                  {
-                      orders.map(order=><SingleOrder
-                        key={order._id}
-                        order={order}
-                        handleDelteBtn={handleDelteBtn}
-                        handleApproveBtn={handleApproveBtn}
-                      ></SingleOrder>)
-                  }
+                  {orders.map((order) => (
+                    <SingleOrder
+                      key={order._id}
+                      order={order}
+                      handleDelteBtn={handleDelteBtn}
+                      handleApproveBtn={handleApproveBtn}
+                    ></SingleOrder>
+                  ))}
                 </tbody>
               </table>
             </div>
