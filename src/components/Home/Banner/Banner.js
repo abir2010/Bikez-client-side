@@ -1,39 +1,33 @@
 import React from "react";
-import banner_img from "../../../images/banner/banner.jpg";
+import top from "../../../images/banner/top.png";
 
 const Banner = () => {
   return (
-    <section class="text-gray-600 body-font">
-      <div class="container mx-auto flex px-5 items-center justify-center flex-col">
-        <img
-          class="lg:mt-4 lg:w-3/6 md:w-3/6 w-5/6 mb-10 object-cover object-center rounded"
-          alt="hero"
-          src={banner_img}
-        />
-        <div class="text-center lg:w-2/3 w-full -mt-16 lg:-mt-8">
-          <h1 class="sm:text-4xl lg:text-5xl mb-4 font-bold text-gray-900 heading ">
-            FIND A <span className="text-red-500">HIGH QUALITY</span> BIKE AND SHOP NOW
-          </h1>
-          <p class="mb-8 leading-relaxed">
-            Why buy from Bikes Online? The bikes in our online bike shop are
-            often half the price of comparable bikes in the market, and that is
-            due to our direct to consumer business model. We source high-quality
-            bikes from the manufacturer, cut out the middlemen, and pass on the
-            savings to you - where they belong. Add to that our free, fast
-            delivery and local support and you can rest assured knowing you are
-            getting the best deal on your new bike.
-          </p>
-          <div class="flex justify-center">
-            <button class="inline-flex text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-blue-900 text-lg">
-              EXPLORE BIKE
-            </button>
-            <button class="ml-4 inline-flex text-gray-700 bg-gray-100 border border-2 border-red-500 py-2 px-6 focus:outline-none hover:bg-gray-200 text-lg">
-              ABOUT US
-            </button>
+    <div>
+      <section class="text-gray-100 bg-blue-900 body-font">
+        <div class="container lg:px-16 mt-4 mx-auto flex flex-wrap items-center">
+          <div class="lg:w-3/5 md:w-1/2 md:pr-16 lg:pr-0 pr-0 w-full">
+            <img src={top} alt="" />
+          </div>
+          <div class="lg:w-2/6 md:w-1/2 rounded-lg py-8 px-4 lg:px-0 flex flex-col md:ml-auto w-full mt-10 md:mt-0">
+            <p className="text-4xl text-left font-bold text-white heading">
+              FIND A <br />{" "}
+              <span className="text-red-500 text-5xl">HIGH QUALITY</span> BIKE{" "}
+              <br /> AND SHOP NOW
+            </p>
+            <p className="text-md text-left mt-8 text-gray-400">
+              Why buy from Bikez Shop? The bikes in our online bike shop are
+              often half the price of comparable bikes in the market, and that
+              is due to our direct to consumer business model. We source
+              high-quality bikes from the manufacturer, cut out the middlemen,
+              and pass on the savings to you - where they belong. Add to that
+              our free, fast delivery and local support and you can rest assured
+              knowing you are getting the best deal on your new bike.
+            </p>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
   );
 };
 

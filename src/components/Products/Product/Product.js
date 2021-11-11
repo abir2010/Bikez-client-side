@@ -5,8 +5,8 @@ const Product = (props) => {
   const history = useHistory();
   const { _id, name, description, price, image } = props.product;
   return (
-    <div class="p-4 md:w-1/3 card">
-      <div class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
+    <div class="p-4 lg:p-8 md:w-1/3 card">
+      <div class="h-full overflow-hidden">
         <img
           class="lg:h-56 xl:h-64 md:h-36 w-full object-cover object-center"
           src={image}

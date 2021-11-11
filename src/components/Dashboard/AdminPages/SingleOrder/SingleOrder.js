@@ -32,7 +32,7 @@ const {handleApproveBtn} = props;
           class={
             status === "Pending"
               ? "px-2 py-1 text-xs font-bold rounded-full bg-red-200 text-red-700"
-              : "px-2 py-1 text-xs font-bold rounded-full bg-yellow-200 text-yellow-600"
+              : "px-2 py-1 text-xs font-bold rounded-full bg-green-200 text-green-600"
           }
         >
           {status}
@@ -41,13 +41,13 @@ const {handleApproveBtn} = props;
       <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
         <button
           onClick={()=>handleApproveBtn(_id)}
-          class="text-white mr-2 px-2 py-1 bg-indigo-400 hover:bg-indigo-500 hover:text-gray-100"
+          class="text-white mr-2 px-2 py-1 bg-blue-800 hover:bg-blue-900 hover:text-gray-100"
         >
           APPROVE
         </button>
         <button
           onClick={()=>handleDelteBtn(_id)}
-          class="text-white px-2 py-1 bg-red-400 hover:bg-red-500 hover:text-gray-100"
+          class="text-white px-2 py-1 bg-red-500 hover:bg-red-600 hover:text-gray-100"
         >
           DELETE
         </button>

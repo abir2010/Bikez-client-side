@@ -27,11 +27,6 @@ const Header = () => {
               BIKES
             </Link>
           </li>
-          <li>
-            <Link to="/services" class="mr-5 hover:text-red-500">
-              SERVICE
-            </Link>
-          </li>
           {user?.email && (
             <li>
               <Link to="/dashboard" class="mr-5 hover:text-red-500">
@@ -62,7 +57,9 @@ const Header = () => {
           </Link>
         ) : (
           <>
-            <p className="text-red-500 lg:ml-4">{user?.displayName}</p>
+            <p className="text-blue-900 font-bold lg:ml-4">
+              {user?.displayName}
+            </p>
             <img
               src={
                 user?.photoURL

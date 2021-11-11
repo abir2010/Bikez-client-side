@@ -49,7 +49,7 @@ const AddProduct = () => {
               Product Name
             </label>
             <input
-              className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-blue-900"
+              className="appearance-none block w-full border-b-2 border-blue-900 text-gray-700 py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
               id="grid-name"
               type="text"
               ref={nameRef}
@@ -66,7 +66,7 @@ const AddProduct = () => {
               Product details
             </label>
             <input
-              className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-blue-900"
+              className="appearance-none block w-full border-b-2 border-blue-900 text-gray-700 py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
               id="grid-details"
               type="text"
               ref={infoRef}
@@ -83,7 +83,7 @@ const AddProduct = () => {
               Product image-url
             </label>
             <input
-              className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-blue-900"
+              className="appearance-none block w-full border-b-2 border-blue-900 text-gray-700 py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
               id="grid-image"
               type="text"
               ref={imageRef}
@@ -101,7 +101,7 @@ const AddProduct = () => {
               product price
             </label>
             <input
-              className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-blue-900"
+              className="appearance-none block w-full border-b-2 border-blue-900 text-gray-700 py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
               id="grid-price"
               type="number"
               ref={priceRef}

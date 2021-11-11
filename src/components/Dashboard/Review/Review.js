@@ -52,7 +52,7 @@ const Review = () => {
               Full Name
             </label>
             <input
-              className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-blue-900"
+              className="appearance-none block w-full border-b-2 border-blue-900 text-gray-700 py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
               id="grid-name"
               type="text"
               placeholder="Jon Abruzzi"
@@ -70,7 +70,7 @@ const Review = () => {
               Email
             </label>
             <input
-              className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-blue-900"
+              className="appearance-none block w-full border-b-2 border-blue-900 text-gray-700 py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
               id="grid-email"
               type="email"
               placeholder="example@example.com"
@@ -88,7 +88,7 @@ const Review = () => {
               REVIEW MESSAGE
             </label>
             <input
-              className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-blue-900"
+              className="appearance-none block w-full border-b-2 border-blue-900 text-gray-700 py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
               id="grid-message"
               type="text"
               ref={messageRef}
@@ -108,7 +108,7 @@ const Review = () => {
               RATING
             </label>
             <input
-              className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-blue-900"
+              className="appearance-none block w-full border-b-2 border-blue-900 text-gray-700 py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
               id="grid-rating"
               type="number"
               ref={ratingRef}

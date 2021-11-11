@@ -18,12 +18,12 @@ const Dashboard = () => {
   const { url, path } = useRouteMatch();
   return (
     <div>
-      <div className="flex justify-between items-center border-b-2 border-red-200 lg:px-8 lg:py-4">
+      <div className="flex justify-between items-center border-b-2 border-blue-900 lg:px-8 lg:py-4">
         <button onClick={() => setCount(count+=3)} className="p-2">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 512 512"
-            className="w-5 h-5 fillCurrent dark:text-coolGray-100"
+            className="w-5 h-5 fillCurrent"
           >
             <rect width="352" height="32" x="80" y="96"></rect>
             <rect width="352" height="32" x="80" y="240"></rect>
@@ -45,7 +45,7 @@ const Dashboard = () => {
             <span className="flex items-center space-x-1">
               <a
                 href="/"
-                className="text-xs hover:underline dark:text-coolGray-400"
+                className="text-xs hover:underline"
               >
                 View profile
               </a>
@@ -57,8 +57,8 @@ const Dashboard = () => {
         <div
           className={
             count % 2 == 0
-              ? "flex flex-col h-screen p-3 w-72 bg-red-200 lg:block block"
-              : "flex flex-col h-screen p-3 w-72 bg-red-200 lg:block hidden"
+              ? "flex flex-col h-screen p-3 w-72 bg-blue-900 text-gray-100 lg:block block"
+              : "flex flex-col h-screen p-3 w-72 bg-blue-900 text-gray-100 lg:block hidden"
           }
         >
           <div className="space-y-3">
@@ -122,10 +122,10 @@ const Dashboard = () => {
             </div>
             <div className="flex-1">
               <ul className="pt-2 pb-4 space-y-1 text-sm">
-                <li className="rounded-sm hover:bg-indigo-300 rounded-xl">
+                <li className="rounded-md hover:bg-red-500">
                   <Link
                     to="/home"
-                    className="flex items-center p-2 space-x-3 rounded-md text-lg font-bold"
+                    className="flex items-center p-2 space-x-3 rounded-md text-lg"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -158,10 +158,10 @@ const Dashboard = () => {
                 </li>
                 {!isAdmin ? (
                   <>
-                    <li className="rounded-sm hover:bg-indigo-300 rounded-xl">
+                    <li className="rounded-md hover:bg-red-500">
                       <Link
                         to={`${url}/pay`}
-                        className="flex items-center p-2 space-x-3 rounded-md text-lg font-bold"
+                        className="flex items-center p-2 space-x-3 rounded-md text-lg"
                       >
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -193,10 +193,10 @@ const Dashboard = () => {
                         <span>Pay</span>
                       </Link>
                     </li>
-                    <li className="rounded-sm hover:bg-indigo-300 rounded-xl">
+                    <li className="rounded-md hover:bg-red-500">
                       <Link
                         to={`${url}/myOrders`}
-                        className="flex items-center p-2 space-x-3 rounded-md text-lg font-bold"
+                        className="flex items-center p-2 space-x-3 rounded-md text-lg"
                       >
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -232,10 +232,10 @@ const Dashboard = () => {
                         <span>My Orders</span>
                       </Link>
                     </li>
-                    <li className="rounded-sm hover:bg-indigo-300 rounded-xl">
+                    <li className="rounded-md hover:bg-red-500">
                       <Link
                         to={`${url}/review`}
-                        className="flex items-center p-2 space-x-3 rounded-md text-lg font-bold"
+                        className="flex items-center p-2 space-x-3 rounded-md text-lg"
                       >
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -258,10 +258,10 @@ const Dashboard = () => {
                   </>
                 ) : (
                   <>
-                    <li className="rounded-sm hover:bg-indigo-300 rounded-xl">
+                    <li className="rounded-md hover:bg-red-500">
                       <Link
                         to={`${url}/allOrders`}
-                        className="flex items-center p-2 space-x-3 rounded-md text-lg font-bold"
+                        className="flex items-center p-2 space-x-3 rounded-md text-lg"
                       >
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -289,10 +289,10 @@ const Dashboard = () => {
                         <span>Manage All Orders</span>
                       </Link>
                     </li>
-                    <li className="rounded-sm hover:bg-indigo-300 rounded-xl">
+                    <li className="rounded-md hover:bg-red-500">
                       <Link
                         to={`${url}/addProduct`}
-                        className="flex items-center p-2 space-x-3 rounded-md text-lg font-bold"
+                        className="flex items-center p-2 space-x-3 rounded-md text-lg"
                       >
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -313,10 +313,10 @@ const Dashboard = () => {
                         <span>Add Product</span>
                       </Link>
                     </li>
-                    <li className="rounded-sm hover:bg-indigo-300 rounded-xl">
+                    <li className="rounded-md hover:bg-red-500">
                       <Link
                         to={`${url}/makeAdmin`}
-                        className="flex items-center p-2 space-x-3 rounded-md text-lg font-bold"
+                        className="flex items-center p-2 space-x-3 rounded-md text-lg"
                       >
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -345,10 +345,10 @@ const Dashboard = () => {
                         <span>Make Admin</span>
                       </Link>
                     </li>
-                    <li className="rounded-sm hover:bg-indigo-300 rounded-xl">
+                    <li className="rounded-md hover:bg-red-500">
                       <Link
                         to={`${url}/manageProducts`}
-                        className="flex items-center p-2 space-x-3 rounded-md text-lg font-bold"
+                        className="flex items-center p-2 space-x-3 rounded-md text-lg"
                       >
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -384,10 +384,10 @@ const Dashboard = () => {
                     </li>
                   </>
                 )}
-                <li className="rounded-sm hover:bg-red-400 rounded-xl">
+                <li className="rounded-md hover:bg-red-500">
                   <button
                     onClick={logOut}
-                    className="flex items-center p-2 space-x-3 rounded-md text-lg font-bold"
+                    className="flex items-center p-2 space-x-3 rounded-md text-lg"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
