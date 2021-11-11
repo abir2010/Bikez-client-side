@@ -11,20 +11,22 @@ const MyOrders = () => {
       .then((data) => setOrders(data));
   }, []);
   const handleorderDeleteBtn = (id) => {
-    fetch(`http://localhost:5000/orders?id=${id}`, {
-      method: "DELETE",
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.deletedCount > 0) {
-          const dialogue = window.confirm("Want to cancel your order");
-          if (dialogue) {
+    const dialogue = window.confirm("Want to cancel your order");
+    if (!dialogue) {
+      return;
+    } else {
+      fetch(`http://localhost:5000/orders?id=${id}`, {
+        method: "DELETE",
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.deletedCount > 0) {
             alert("Your Order removed successfully!");
             const filtered = orders.filter((order) => order._id != id);
             setOrders(filtered);
           }
-        }
-      });
+        });
+    }
   };
   return (
     <div>

@@ -64,7 +64,11 @@ const Header = () => {
           <>
             <p className="text-red-500 lg:ml-4">{user?.displayName}</p>
             <img
-              src={user?.photoURL}
+              src={
+                user?.photoURL
+                  ? user.photoURL
+                  : "https://img.icons8.com/external-kiranshastry-lineal-kiranshastry/2x/external-user-interface-kiranshastry-lineal-kiranshastry.png"
+              }
               className="w-12 h-12 lg:mx-2 rounded-full border-2 border-red-500"
               alt=""
             />

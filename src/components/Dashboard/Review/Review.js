@@ -12,7 +12,9 @@ const Review = () => {
     const review = {
       userName: user?.displayName,
       userEmail: user?.email,
-      urserImage: user?.photoURL,
+      urserImage: user?.photoURL
+        ? user.photoURL
+        : "https://img.icons8.com/external-kiranshastry-lineal-kiranshastry/2x/external-user-interface-kiranshastry-lineal-kiranshastry.png",
       userMessage: messageRef.current.value,
       userRating: parseInt(ratingRef.current.value),
     };
@@ -90,6 +92,7 @@ const Review = () => {
               id="grid-message"
               type="text"
               ref={messageRef}
+              required
               // onBlur={handleOnBlur}
               name="userMessage"
               placeholder=" your message here "
@@ -109,6 +112,7 @@ const Review = () => {
               id="grid-rating"
               type="number"
               ref={ratingRef}
+              required
               // onBlur={handleOnBlur}
               name="userRating"
               placeholder=" ? / 5 "

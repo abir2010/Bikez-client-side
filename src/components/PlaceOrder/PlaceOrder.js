@@ -125,6 +125,7 @@ const PlaceOrder = () => {
               id="grid-number"
               type="number"
               onBlur={handleOnBlur}
+              required
               name="userPhone"
               placeholder="+96-123-456-789"
             />
@@ -143,6 +144,7 @@ const PlaceOrder = () => {
               id="grid-address"
               type="text"
               onBlur={handleOnBlur}
+              required
               name="userAddress"
               placeholder="123-park st,Albaquarqe,United States"
             />

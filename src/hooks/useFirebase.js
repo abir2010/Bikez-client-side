@@ -5,6 +5,7 @@ import {
   signInWithPopup,
   GoogleAuthProvider,
   createUserWithEmailAndPassword,
+  updateProfile,
   signInWithEmailAndPassword,
   signOut,
 } from "firebase/auth";
@@ -17,7 +18,7 @@ const useFirebase = () => {
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(true);
   const [isAdmin, setIsAdmin] = useState(false);
-  const [drawer, setDrawer] = useState(false)
+  const [drawer, setDrawer] = useState(false);
 
   const googleProvider = new GoogleAuthProvider();
   const auth = getAuth();
@@ -34,12 +35,27 @@ const useFirebase = () => {
     });
   }, []);
 
-  const newUserSignUp = (email, password) => {
+  const newUserSignUp = (email, password, name, history) => {
     setIsLoading(true);
     createUserWithEmailAndPassword(auth, email, password)
       .then((result) => {
+        const redirect_uri = "/home";
+        history.replace(redirect_uri);
         setUser(result.user);
         setError("");
+        const newUser = { email, displayName: name };
+        setUser(newUser);
+        saveUser(email, name, "POST");
+        updateProfile(auth.currentUser, {
+          displayName: name,
+        })
+          .then(() => {
+            // Profile updated!
+          })
+          .catch((error) => {
+            setError(error.message);
+          });
+        history.replace("/");
       })
       .catch((error) => {
         setError(error.message);
@@ -47,10 +63,12 @@ const useFirebase = () => {
       .finally(() => setIsLoading(false));
   };
 
-  const newUserSignIn = (email, password) => {
+  const newUserSignIn = (email, password, location, history) => {
     setIsLoading(true);
     signInWithEmailAndPassword(auth, email, password)
       .then((result) => {
+        const redirect_uri = location?.state?.from || "/home";
+        history.replace(redirect_uri);
         setUser(result.user);
         setError("");
       })
@@ -60,13 +78,14 @@ const useFirebase = () => {
       .finally(() => setIsLoading(false));
   };
 
-  const handleGoogleSignIn = (location,history) => {
+  const handleGoogleSignIn = (location, history) => {
     setIsLoading(true);
     signInWithPopup(auth, googleProvider)
       .then((result) => {
         const redirect_uri = location?.state?.from || "/home";
         history.replace(redirect_uri);
         setUser(result.user);
+        saveUser(result.user.email,result.user.displayName,"PUT")
         setError("");
       })
       .catch((error) => {
@@ -86,6 +105,21 @@ const useFirebase = () => {
         setError(error.message);
       })
       .finally(() => setIsLoading(false));
+  };
+
+  useEffect(()=>{
+
+  },[user.email])
+
+  const saveUser = (email, displayName, method) => {
+    const newUser = { email, displayName };
+    fetch("http://localhost:5000/users", {
+      method: method,
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(newUser),
+    }).then();
   };
 
   return {

@@ -6,6 +6,7 @@ import PlaceOrder from "./components/PlaceOrder/PlaceOrder";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import Products from "./components/Products/Products/Products";
 import Login from "./components/Registration/Login/Login";
+import Register from "./components/Registration/Register/Register";
 import AuthProvider from "./contexts/AuthProvider";
 
 function App() {
@@ -31,6 +32,9 @@ function App() {
             </PrivateRoute>
             <Route path="/login">
               <Login></Login>
+            </Route>
+            <Route path="/register">
+              <Register></Register>
             </Route>
           </Switch>
         </BrowserRouter>

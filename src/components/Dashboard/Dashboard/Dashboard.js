@@ -27,7 +27,11 @@ const Dashboard = () => {
         </button>
         <div className="flex items-center p-2 space-x-4 justify-self-end">
           <img
-            src={user?.photoURL}
+            src={
+              user?.photoURL
+                ? user.photoURL
+                : "https://img.icons8.com/external-kiranshastry-lineal-kiranshastry/2x/external-user-interface-kiranshastry-lineal-kiranshastry.png"
+            }
             alt=""
             className="w-12 h-12 rounded-lg dark:bg-coolGray-500"
           />
@@ -54,7 +58,9 @@ const Dashboard = () => {
         >
           <div className="space-y-3">
             <div className="flex items-center justify-between">
-              <Link to={`${url}`} className="text-2xl font-bold">Dashboard</Link>
+              <Link to={`${url}`} className="text-2xl font-bold">
+                Dashboard
+              </Link>
             </div>
             <div className="relative">
               <span className="absolute inset-y-0 left-0 flex items-center py-4">
