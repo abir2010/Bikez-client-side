@@ -19,7 +19,7 @@ const Dashboard = () => {
   return (
     <div>
       <div className="flex justify-between items-center border-b-2 border-red-200 lg:px-8 lg:py-4">
-        <button onClick={() => setCount(count++)} className="p-2">
+        <button onClick={() => setCount(count+=3)} className="p-2">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 512 512"
@@ -53,7 +53,7 @@ const Dashboard = () => {
           </div>
         </div>
       </div>
-      <div className="grid grid-cols-4 gap-4">
+      <div className="lg:flex">
         <div
           className={
             count % 2 == 0
@@ -122,7 +122,7 @@ const Dashboard = () => {
             </div>
             <div className="flex-1">
               <ul className="pt-2 pb-4 space-y-1 text-sm">
-                <li className="rounded-sm">
+                <li className="rounded-sm hover:bg-indigo-300 rounded-xl">
                   <Link
                     to="/home"
                     className="flex items-center p-2 space-x-3 rounded-md text-lg font-bold"
@@ -158,7 +158,7 @@ const Dashboard = () => {
                 </li>
                 {!isAdmin ? (
                   <>
-                    <li className="rounded-sm">
+                    <li className="rounded-sm hover:bg-indigo-300 rounded-xl">
                       <Link
                         to={`${url}/pay`}
                         className="flex items-center p-2 space-x-3 rounded-md text-lg font-bold"
@@ -168,26 +168,32 @@ const Dashboard = () => {
                           xmlnsXlink="http://www.w3.org/1999/xlink"
                           aria-hidden="true"
                           role="img"
-                          width="1em"
-                          height="1em"
+                          width="1.4em"
+                          height="1.4em"
                           preserveAspectRatio="xMidYMid meet"
-                          viewBox="0 0 24 24"
+                          viewBox="0 0 48 48"
                         >
-                          <g
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-width="2"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                          >
-                            <path d="M12 1v22" />
-                            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+                          <path
+                            fill="#78909C"
+                            d="M40 41H8c-2.2 0-4-1.8-4-4V16.1c0-1.3.6-2.5 1.7-3.3L24 0l18.3 12.8c1.1.7 1.7 2 1.7 3.3V37c0 2.2-1.8 4-4 4z"
+                          />
+                          <path fill="#AED581" d="M14 1h20v31H14z" />
+                          <g fill="#558B2F">
+                            <path d="M13 0v33h22V0H13zm20 31H15V2h18v29z" />
+                            <path d="M34 3c0 1.7-.3 3-2 3s-3-1.3-3-3s1.3-2 3-2s2 .3 2 2z" />
+                            <path d="M16 1c1.7 0 3 .3 3 2s-1.3 3-3 3s-2-1.3-2-3s.3-2 2-2z" />
+                            <circle cx="24" cy="8" r="2" />
+                            <circle cx="24" cy="20" r="6" />
                           </g>
+                          <path
+                            fill="#CFD8DC"
+                            d="M40 41H8c-2.2 0-4-1.8-4-4V17l20 13l20-13v20c0 2.2-1.8 4-4 4z"
+                          />
                         </svg>
                         <span>Pay</span>
                       </Link>
                     </li>
-                    <li className="rounded-sm">
+                    <li className="rounded-sm hover:bg-indigo-300 rounded-xl">
                       <Link
                         to={`${url}/myOrders`}
                         className="flex items-center p-2 space-x-3 rounded-md text-lg font-bold"
@@ -197,30 +203,54 @@ const Dashboard = () => {
                           xmlnsXlink="http://www.w3.org/1999/xlink"
                           aria-hidden="true"
                           role="img"
-                          width="1em"
-                          height="1em"
+                          width="1.4em"
+                          height="1.4em"
                           preserveAspectRatio="xMidYMid meet"
-                          viewBox="0 0 24 24"
+                          viewBox="0 0 48 48"
                         >
                           <path
-                            d="M16 18a2 2 0 1 1 0 4a2 2 0 0 1 0-4zm0 1a1 1 0 1 0 0 2a1 1 0 0 0 0-2zm-9-1a2 2 0 1 1 0 4a2 2 0 0 1 0-4zm0 1a1 1 0 1 0 0 2a1 1 0 0 0 0-2zM18 6H4.273l2.547 6H15a.994.994 0 0 0 .8-.402l3-4h.001A1 1 0 0 0 18 6zm-3 7H6.866L6.1 14.56L6 15a1 1 0 0 0 1 1h11v1H7a2 2 0 0 1-1.75-2.97l.72-1.474L2.338 4H1V3h2l.849 2H18a2 2 0 0 1 1.553 3.26l-2.914 3.886A1.998 1.998 0 0 1 15 13z"
-                            fill="currentColor"
+                            fill="#2E7D32"
+                            d="M25.4 5.6c-.8-.8-2-.8-2.8 0l-12 12c-.8.8-.8 2 0 2.8c.4.4.9.6 1.4.6s1-.2 1.4-.6l12-12c.8-.8.8-2 0-2.8z"
+                          />
+                          <path
+                            fill="#1B5E20"
+                            d="M37.4 17.6l-12-12c-.8-.8-2-.8-2.8 0c-.8.8-.8 2 0 2.8l12 12c.4.4.9.6 1.4.6s1-.2 1.4-.6c.8-.8.8-2 0-2.8z"
+                          />
+                          <path
+                            fill="#388E3C"
+                            d="M37.4 41H10.6c-1 0-1.8-.7-2-1.6L5 21h38l-3.7 18.4c-.2.9-1 1.6-1.9 1.6z"
+                          />
+                          <path
+                            fill="#4CAF50"
+                            d="M43 23H5c-1.1 0-2-.9-2-2v-2c0-1.1.9-2 2-2h38c1.1 0 2 .9 2 2v2c0 1.1-.9 2-2 2z"
+                          />
+                          <path
+                            fill="#DCEDC8"
+                            d="M30.8 24.8l-7.9 7.9l-3.7-3.8l-2.2 2.2l5.9 5.9L33 26.9z"
                           />
                         </svg>
                         <span>My Orders</span>
                       </Link>
                     </li>
-                    <li className="rounded-sm dark:bg-coolGray-800 dark:text-coolGray-50">
+                    <li className="rounded-sm hover:bg-indigo-300 rounded-xl">
                       <Link
                         to={`${url}/review`}
                         className="flex items-center p-2 space-x-3 rounded-md text-lg font-bold"
                       >
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 512 512"
-                          className="w-5 h-5 fillCurrent dark:text-coolGray-400"
+                          xmlnsXlink="http://www.w3.org/1999/xlink"
+                          aria-hidden="true"
+                          role="img"
+                          width="1.3em"
+                          height="1.3em"
+                          preserveAspectRatio="xMidYMid meet"
+                          viewBox="0 0 48 48"
                         >
-                          <path d="M453.122,79.012a128,128,0,0,0-181.087.068l-15.511,15.7L241.142,79.114l-.1-.1a128,128,0,0,0-181.02,0l-6.91,6.91a128,128,0,0,0,0,181.019L235.485,449.314l20.595,21.578.491-.492.533.533L276.4,450.574,460.032,266.94a128.147,128.147,0,0,0,0-181.019ZM437.4,244.313,256.571,425.146,75.738,244.313a96,96,0,0,1,0-135.764l6.911-6.91a96,96,0,0,1,135.713-.051l38.093,38.787,38.274-38.736a96,96,0,0,1,135.765,0l6.91,6.909A96.11,96.11,0,0,1,437.4,244.313Z"></path>
+                          <path
+                            fill="#F44336"
+                            d="M34 9c-4.2 0-7.9 2.1-10 5.4C21.9 11.1 18.2 9 14 9C7.4 9 2 14.4 2 21c0 11.9 22 24 22 24s22-12 22-24c0-6.6-5.4-12-12-12z"
+                          />
                         </svg>
                         <span>Review</span>
                       </Link>
@@ -228,7 +258,7 @@ const Dashboard = () => {
                   </>
                 ) : (
                   <>
-                    <li className="rounded-sm">
+                    <li className="rounded-sm hover:bg-indigo-300 rounded-xl">
                       <Link
                         to={`${url}/allOrders`}
                         className="flex items-center p-2 space-x-3 rounded-md text-lg font-bold"
@@ -259,7 +289,7 @@ const Dashboard = () => {
                         <span>Manage All Orders</span>
                       </Link>
                     </li>
-                    <li className="rounded-sm">
+                    <li className="rounded-sm hover:bg-indigo-300 rounded-xl">
                       <Link
                         to={`${url}/addProduct`}
                         className="flex items-center p-2 space-x-3 rounded-md text-lg font-bold"
@@ -283,7 +313,7 @@ const Dashboard = () => {
                         <span>Add Product</span>
                       </Link>
                     </li>
-                    <li className="rounded-sm dark:bg-coolGray-800 dark:text-coolGray-50">
+                    <li className="rounded-sm hover:bg-indigo-300 rounded-xl">
                       <Link
                         to={`${url}/makeAdmin`}
                         className="flex items-center p-2 space-x-3 rounded-md text-lg font-bold"
@@ -315,7 +345,7 @@ const Dashboard = () => {
                         <span>Make Admin</span>
                       </Link>
                     </li>
-                    <li className="rounded-sm dark:bg-coolGray-800 dark:text-coolGray-50">
+                    <li className="rounded-sm hover:bg-indigo-300 rounded-xl">
                       <Link
                         to={`${url}/manageProducts`}
                         className="flex items-center p-2 space-x-3 rounded-md text-lg font-bold"
@@ -354,7 +384,7 @@ const Dashboard = () => {
                     </li>
                   </>
                 )}
-                <li className="rounded-sm">
+                <li className="rounded-sm hover:bg-red-400 rounded-xl">
                   <button
                     onClick={logOut}
                     className="flex items-center p-2 space-x-3 rounded-md text-lg font-bold"

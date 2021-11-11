@@ -114,7 +114,7 @@ const useFirebase = () => {
   }, [user?.email]);
 
   const saveUser = (email, displayName, method) => {
-    const newUser = { email, displayName };
+    const newUser = { email, displayName, role: "User" };
     fetch("http://localhost:5000/users", {
       method: method,
       headers: {
