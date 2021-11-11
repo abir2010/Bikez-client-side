@@ -54,7 +54,7 @@ const Dashboard = () => {
         >
           <div className="space-y-3">
             <div className="flex items-center justify-between">
-              <Link to={`${url}/dashboardHome`} className="text-2xl font-bold">Dashboard</Link>
+              <Link to={`${url}`} className="text-2xl font-bold">Dashboard</Link>
             </div>
             <div className="relative">
               <span className="absolute inset-y-0 left-0 flex items-center py-4">

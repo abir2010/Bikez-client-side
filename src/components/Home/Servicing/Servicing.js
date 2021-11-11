@@ -4,6 +4,9 @@ import service_img from "../../../images/servicing/Annotation 2021-11-10 104144.
 const Servicing = () => {
   return (
     <div className="my-8">
+      <p className="text-4xl text-gray-900 font-bold heading lg:pb-8">
+        SERVICING <span className="text-red-500">CENTER</span>
+      </p>
       <div className="container grid grid-cols-12 mx-auto">
         <div
           className="flex flex-col justify-center col-span-12 align-middle bg-no-repeat bg-cover dark:bg-coolGray-700 lg:col-span-6 lg:h-auto shadow-xl"
@@ -52,8 +55,9 @@ const Servicing = () => {
               PERSONAL BIKE KIT
             </h1>
             <p className="text-right">
-              We have latest personal bike kit which is used to service your bike
-              <br /> we will gonna love it 
+              We have latest personal bike kit which is used to service your
+              bike
+              <br /> we will gonna love it
             </p>
             <div className="flex justify-end">
               <button className="inline-flex text-sm text-gray-50 items-center bg-red-500 border-0 py-1 px-6 focus:outline-none hover:bg-blue-900 mt-4 md:mt-0">

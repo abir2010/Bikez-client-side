@@ -1,35 +1,28 @@
-import React, { useState } from "react";
-import { useHistory } from "react-router";
+import React, { useRef } from "react";
+import { useHistory } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
 
 const Review = () => {
   const history = useHistory();
   const { user } = useAuth();
-  const initialReview = {
-    userName: user?.displayName,
-    userEmail: user?.email,
-  };
-  const [review, setReview] = useState(initialReview);
-  const handleOnBlur = (e) => {
-    const field = e.target.name;
-    const value = e.target.value;
-    const finalReview = {
-      ...initialReview,
-    };
-    finalReview[field] = value;
-    setReview(finalReview);
-    e.preventDefault();
-  };
+  const messageRef = useRef();
+  const ratingRef = useRef();
+
   const handleSubmit = (e) => {
-    const reviewDoc = {
-      ...review,
+    const review = {
+      userName: user?.displayName,
+      userEmail: user?.email,
+      urserImage: user?.photoURL,
+      userMessage: messageRef.current.value,
+      userRating: parseInt(ratingRef.current.value),
     };
+    // console.log(review);
     fetch("http://localhost:5000/reviews", {
       method: "POST",
       headers: {
         "content-type": "application/json",
       },
-      body: JSON.stringify(reviewDoc),
+      body: JSON.stringify(review),
     })
       .then((res) => res.json())
       .then((data) => {
@@ -96,9 +89,10 @@ const Review = () => {
               className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-blue-900"
               id="grid-message"
               type="text"
-              onBlur={handleOnBlur}
+              ref={messageRef}
+              // onBlur={handleOnBlur}
               name="userMessage"
-              placeholder="write your full review here....."
+              placeholder=" your message here "
             />
           </div>
         </div>
@@ -114,7 +108,8 @@ const Review = () => {
               className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-blue-900"
               id="grid-rating"
               type="number"
-              onBlur={handleOnBlur}
+              ref={ratingRef}
+              // onBlur={handleOnBlur}
               name="userRating"
               placeholder=" ? / 5 "
             />

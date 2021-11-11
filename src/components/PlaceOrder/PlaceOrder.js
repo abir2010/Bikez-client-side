@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
+import Header from "../Shared/Header/Header";
 
 const PlaceOrder = () => {
   const { user } = useAuth();
@@ -58,6 +59,8 @@ const PlaceOrder = () => {
   const pd = products.find((product) => product._id == id);
 
   return (
+    <div>
+      <Header/>
     <div className="lg:flex justify-center gap-20">
       <div className="max-w-sm rounded overflow-hidden shadow-lg pb-4">
         <p className="text-3xl font-bold mt-5">
@@ -152,6 +155,7 @@ const PlaceOrder = () => {
           SEND ORDER NOW
         </button>
       </form>
+    </div>
     </div>
   );
 };
