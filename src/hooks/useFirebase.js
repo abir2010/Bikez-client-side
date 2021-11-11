@@ -85,7 +85,7 @@ const useFirebase = () => {
         const redirect_uri = location?.state?.from || "/home";
         history.replace(redirect_uri);
         setUser(result.user);
-        saveUser(result.user.email,result.user.displayName,"PUT")
+        saveUser(result.user.email, result.user.displayName, "PUT");
         setError("");
       })
       .catch((error) => {
@@ -107,9 +107,11 @@ const useFirebase = () => {
       .finally(() => setIsLoading(false));
   };
 
-  useEffect(()=>{
-
-  },[user.email])
+  useEffect(() => {
+    fetch(`http://localhost:5000/users?email=${user.email}`)
+      .then((res) => res.json())
+      .then((data) => setIsAdmin(data.admin));
+  }, [user?.email]);
 
   const saveUser = (email, displayName, method) => {
     const newUser = { email, displayName };

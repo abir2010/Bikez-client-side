@@ -2,6 +2,11 @@ import React, { useState } from "react";
 import { Route, Switch, useRouteMatch } from "react-router";
 import { Link } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
+import AdminRoute from "../../AdminRoute/AdminRoute";
+import AddProduct from "../AdminPages/AddProduct/AddProduct";
+import AllOrders from "../AdminPages/AllOrders/AllOrders";
+import MakeAdmin from "../AdminPages/MakeAdmin/MakeAdmin";
+import ManageProducts from "../AdminPages/ManageProducts/ManageProducts";
 import DashBoardHome from "../DashBoardHome/DashBoardHome";
 import MyOrders from "../MyOrders/MyOrders";
 import Pay from "../Pay/Pay";
@@ -9,7 +14,7 @@ import Review from "../Review/Review";
 
 const Dashboard = () => {
   let [count, setCount] = useState(1);
-  const { user, logOut } = useAuth();
+  const { user, isAdmin, logOut } = useAuth();
   const { url, path } = useRouteMatch();
   return (
     <div>
@@ -101,73 +106,162 @@ const Dashboard = () => {
                     <span>Home</span>
                   </Link>
                 </li>
-                <li className="rounded-sm">
-                  <Link
-                    to={`${url}/pay`}
-                    className="flex items-center p-2 space-x-3 rounded-md text-lg font-bold"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      xmlnsXlink="http://www.w3.org/1999/xlink"
-                      aria-hidden="true"
-                      role="img"
-                      width="1em"
-                      height="1em"
-                      preserveAspectRatio="xMidYMid meet"
-                      viewBox="0 0 24 24"
-                    >
-                      <g
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+                {!isAdmin ? (
+                  <>
+                    <li className="rounded-sm">
+                      <Link
+                        to={`${url}/pay`}
+                        className="flex items-center p-2 space-x-3 rounded-md text-lg font-bold"
                       >
-                        <path d="M12 1v22" />
-                        <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
-                      </g>
-                    </svg>
-                    <span>Pay</span>
-                  </Link>
-                </li>
-                <li className="rounded-sm">
-                  <Link
-                    to={`${url}/myOrders`}
-                    className="flex items-center p-2 space-x-3 rounded-md text-lg font-bold"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      xmlnsXlink="http://www.w3.org/1999/xlink"
-                      aria-hidden="true"
-                      role="img"
-                      width="1em"
-                      height="1em"
-                      preserveAspectRatio="xMidYMid meet"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        d="M16 18a2 2 0 1 1 0 4a2 2 0 0 1 0-4zm0 1a1 1 0 1 0 0 2a1 1 0 0 0 0-2zm-9-1a2 2 0 1 1 0 4a2 2 0 0 1 0-4zm0 1a1 1 0 1 0 0 2a1 1 0 0 0 0-2zM18 6H4.273l2.547 6H15a.994.994 0 0 0 .8-.402l3-4h.001A1 1 0 0 0 18 6zm-3 7H6.866L6.1 14.56L6 15a1 1 0 0 0 1 1h11v1H7a2 2 0 0 1-1.75-2.97l.72-1.474L2.338 4H1V3h2l.849 2H18a2 2 0 0 1 1.553 3.26l-2.914 3.886A1.998 1.998 0 0 1 15 13z"
-                        fill="currentColor"
-                      />
-                    </svg>
-                    <span>My Orders</span>
-                  </Link>
-                </li>
-                <li className="rounded-sm dark:bg-coolGray-800 dark:text-coolGray-50">
-                  <Link
-                    to={`${url}/review`}
-                    className="flex items-center p-2 space-x-3 rounded-md text-lg font-bold"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 512 512"
-                      className="w-5 h-5 fillCurrent dark:text-coolGray-400"
-                    >
-                      <path d="M453.122,79.012a128,128,0,0,0-181.087.068l-15.511,15.7L241.142,79.114l-.1-.1a128,128,0,0,0-181.02,0l-6.91,6.91a128,128,0,0,0,0,181.019L235.485,449.314l20.595,21.578.491-.492.533.533L276.4,450.574,460.032,266.94a128.147,128.147,0,0,0,0-181.019ZM437.4,244.313,256.571,425.146,75.738,244.313a96,96,0,0,1,0-135.764l6.911-6.91a96,96,0,0,1,135.713-.051l38.093,38.787,38.274-38.736a96,96,0,0,1,135.765,0l6.91,6.909A96.11,96.11,0,0,1,437.4,244.313Z"></path>
-                    </svg>
-                    <span>Review</span>
-                  </Link>
-                </li>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          xmlnsXlink="http://www.w3.org/1999/xlink"
+                          aria-hidden="true"
+                          role="img"
+                          width="1em"
+                          height="1em"
+                          preserveAspectRatio="xMidYMid meet"
+                          viewBox="0 0 24 24"
+                        >
+                          <g
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          >
+                            <path d="M12 1v22" />
+                            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+                          </g>
+                        </svg>
+                        <span>Pay</span>
+                      </Link>
+                    </li>
+                    <li className="rounded-sm">
+                      <Link
+                        to={`${url}/myOrders`}
+                        className="flex items-center p-2 space-x-3 rounded-md text-lg font-bold"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          xmlnsXlink="http://www.w3.org/1999/xlink"
+                          aria-hidden="true"
+                          role="img"
+                          width="1em"
+                          height="1em"
+                          preserveAspectRatio="xMidYMid meet"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M16 18a2 2 0 1 1 0 4a2 2 0 0 1 0-4zm0 1a1 1 0 1 0 0 2a1 1 0 0 0 0-2zm-9-1a2 2 0 1 1 0 4a2 2 0 0 1 0-4zm0 1a1 1 0 1 0 0 2a1 1 0 0 0 0-2zM18 6H4.273l2.547 6H15a.994.994 0 0 0 .8-.402l3-4h.001A1 1 0 0 0 18 6zm-3 7H6.866L6.1 14.56L6 15a1 1 0 0 0 1 1h11v1H7a2 2 0 0 1-1.75-2.97l.72-1.474L2.338 4H1V3h2l.849 2H18a2 2 0 0 1 1.553 3.26l-2.914 3.886A1.998 1.998 0 0 1 15 13z"
+                            fill="currentColor"
+                          />
+                        </svg>
+                        <span>My Orders</span>
+                      </Link>
+                    </li>
+                    <li className="rounded-sm dark:bg-coolGray-800 dark:text-coolGray-50">
+                      <Link
+                        to={`${url}/review`}
+                        className="flex items-center p-2 space-x-3 rounded-md text-lg font-bold"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 512 512"
+                          className="w-5 h-5 fillCurrent dark:text-coolGray-400"
+                        >
+                          <path d="M453.122,79.012a128,128,0,0,0-181.087.068l-15.511,15.7L241.142,79.114l-.1-.1a128,128,0,0,0-181.02,0l-6.91,6.91a128,128,0,0,0,0,181.019L235.485,449.314l20.595,21.578.491-.492.533.533L276.4,450.574,460.032,266.94a128.147,128.147,0,0,0,0-181.019ZM437.4,244.313,256.571,425.146,75.738,244.313a96,96,0,0,1,0-135.764l6.911-6.91a96,96,0,0,1,135.713-.051l38.093,38.787,38.274-38.736a96,96,0,0,1,135.765,0l6.91,6.909A96.11,96.11,0,0,1,437.4,244.313Z"></path>
+                        </svg>
+                        <span>Review</span>
+                      </Link>
+                    </li>
+                  </>
+                ) : (
+                  <>
+                    <li className="rounded-sm">
+                      <Link
+                        to={`${url}/allOrders`}
+                        className="flex items-center p-2 space-x-3 rounded-md text-lg font-bold"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          xmlnsXlink="http://www.w3.org/1999/xlink"
+                          aria-hidden="true"
+                          role="img"
+                          width="1em"
+                          height="1em"
+                          preserveAspectRatio="xMidYMid meet"
+                          viewBox="0 0 24 24"
+                        >
+                          <g
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          >
+                            <path d="M12 1v22" />
+                            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+                          </g>
+                        </svg>
+                        <span>Manage All Orders</span>
+                      </Link>
+                    </li>
+                    <li className="rounded-sm">
+                      <Link
+                        to={`${url}/addProduct`}
+                        className="flex items-center p-2 space-x-3 rounded-md text-lg font-bold"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          xmlnsXlink="http://www.w3.org/1999/xlink"
+                          aria-hidden="true"
+                          role="img"
+                          width="1em"
+                          height="1em"
+                          preserveAspectRatio="xMidYMid meet"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M16 18a2 2 0 1 1 0 4a2 2 0 0 1 0-4zm0 1a1 1 0 1 0 0 2a1 1 0 0 0 0-2zm-9-1a2 2 0 1 1 0 4a2 2 0 0 1 0-4zm0 1a1 1 0 1 0 0 2a1 1 0 0 0 0-2zM18 6H4.273l2.547 6H15a.994.994 0 0 0 .8-.402l3-4h.001A1 1 0 0 0 18 6zm-3 7H6.866L6.1 14.56L6 15a1 1 0 0 0 1 1h11v1H7a2 2 0 0 1-1.75-2.97l.72-1.474L2.338 4H1V3h2l.849 2H18a2 2 0 0 1 1.553 3.26l-2.914 3.886A1.998 1.998 0 0 1 15 13z"
+                            fill="currentColor"
+                          />
+                        </svg>
+                        <span>Add Product</span>
+                      </Link>
+                    </li>
+                    <li className="rounded-sm dark:bg-coolGray-800 dark:text-coolGray-50">
+                      <Link
+                        to={`${url}/makeAdmin`}
+                        className="flex items-center p-2 space-x-3 rounded-md text-lg font-bold"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 512 512"
+                          className="w-5 h-5 fillCurrent dark:text-coolGray-400"
+                        >
+                          <path d="M453.122,79.012a128,128,0,0,0-181.087.068l-15.511,15.7L241.142,79.114l-.1-.1a128,128,0,0,0-181.02,0l-6.91,6.91a128,128,0,0,0,0,181.019L235.485,449.314l20.595,21.578.491-.492.533.533L276.4,450.574,460.032,266.94a128.147,128.147,0,0,0,0-181.019ZM437.4,244.313,256.571,425.146,75.738,244.313a96,96,0,0,1,0-135.764l6.911-6.91a96,96,0,0,1,135.713-.051l38.093,38.787,38.274-38.736a96,96,0,0,1,135.765,0l6.91,6.909A96.11,96.11,0,0,1,437.4,244.313Z"></path>
+                        </svg>
+                        <span>Make Admin</span>
+                      </Link>
+                    </li>
+                    <li className="rounded-sm dark:bg-coolGray-800 dark:text-coolGray-50">
+                      <Link
+                        to={`${url}/manageProducts`}
+                        className="flex items-center p-2 space-x-3 rounded-md text-lg font-bold"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 512 512"
+                          className="w-5 h-5 fillCurrent dark:text-coolGray-400"
+                        >
+                          <path d="M453.122,79.012a128,128,0,0,0-181.087.068l-15.511,15.7L241.142,79.114l-.1-.1a128,128,0,0,0-181.02,0l-6.91,6.91a128,128,0,0,0,0,181.019L235.485,449.314l20.595,21.578.491-.492.533.533L276.4,450.574,460.032,266.94a128.147,128.147,0,0,0,0-181.019ZM437.4,244.313,256.571,425.146,75.738,244.313a96,96,0,0,1,0-135.764l6.911-6.91a96,96,0,0,1,135.713-.051l38.093,38.787,38.274-38.736a96,96,0,0,1,135.765,0l6.91,6.909A96.11,96.11,0,0,1,437.4,244.313Z"></path>
+                        </svg>
+                        <span>Manage Products</span>
+                      </Link>
+                    </li>
+                  </>
+                )}
                 <li className="rounded-sm">
                   <button
                     onClick={logOut}
@@ -208,6 +302,18 @@ const Dashboard = () => {
             <Route path={`${path}/review`}>
               <Review></Review>
             </Route>
+            <AdminRoute path={`${path}/allOrders`}>
+              <AllOrders></AllOrders>
+            </AdminRoute>
+            <AdminRoute path={`${path}/addProduct`}>
+              <AddProduct></AddProduct>
+            </AdminRoute>
+            <AdminRoute path={`${path}/makeAdmin`}>
+              <MakeAdmin></MakeAdmin>
+            </AdminRoute>
+            <AdminRoute path={`${path}/manageProducts`}>
+              <ManageProducts></ManageProducts>
+            </AdminRoute>
           </Switch>
         </div>
       </div>
