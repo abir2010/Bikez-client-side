@@ -25,7 +25,7 @@ const useFirebase = () => {
 
   useEffect(() => {
     setIsLoading(true);
-    onAuthStateChanged(auth, (user) => {
+    const unsubscribed = onAuthStateChanged(auth, (user) => {
       if (user) {
         setUser(user);
       } else {
@@ -33,6 +33,7 @@ const useFirebase = () => {
       }
       setIsLoading(false);
     });
+    return () => unsubscribed;
   }, []);
 
   const newUserSignUp = (email, password, name, history) => {
@@ -108,10 +109,10 @@ const useFirebase = () => {
   };
 
   useEffect(() => {
-    fetch(`http://localhost:5000/users?email=${user.email}`)
+    fetch(`http://localhost:5000/users/${user.email}`)
       .then((res) => res.json())
       .then((data) => setIsAdmin(data.admin));
-  }, [user?.email]);
+  }, [user.email]);
 
   const saveUser = (email, displayName, method) => {
     const newUser = { email, displayName, role: "User" };
