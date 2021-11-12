@@ -12,8 +12,8 @@ const DashBoardHome = () => {
   return (
     <div>
       {!isAdmin ? (
-        <div className="px-20 py-8 rounded-xl">
-          <section class="text-gray-100 bg-blue-900 mt-12 body-font">
+        <div className="lg:px-20 lg:py-8 rounded-xl">
+          <section class="text-gray-100 bg-blue-900 lg:mt-12 body-font">
             <div class="container lg:px-5 mt-4 mx-auto flex flex-wrap items-center">
               <div class="lg:w-3/5 md:w-1/2 md:pr-16 lg:pr-0 pr-0 w-full">
                 <img src={dashboard_img} alt="" />
