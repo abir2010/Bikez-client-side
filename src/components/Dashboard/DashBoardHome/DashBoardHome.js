@@ -8,7 +8,7 @@ import CardSocialTraffic from "../../Cards/CardSocialTraffic";
 import CardStats from "../../Cards/CardStats";
 
 const DashBoardHome = () => {
-  const { user, isAdmin } = useAuth();
+  const { user,isAdmin } = useAuth();
   return (
     <div>
       {!isAdmin ? (
