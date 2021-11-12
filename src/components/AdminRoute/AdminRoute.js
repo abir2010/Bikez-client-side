@@ -4,7 +4,7 @@ import useAuth from "../../hooks/useAuth";
 
 const AdminRoute = ({ children, ...rest }) => {
   const { user, isAdmin, isLoading } = useAuth();
-  if (isLoading) {
+  if (!isAdmin) {
     return (
       <div className="flex items-center justify-center space-x-2">
         <div className="w-8 h-8 rounded-full animate-pulse bg-red-500"></div>
@@ -17,7 +17,7 @@ const AdminRoute = ({ children, ...rest }) => {
     <Route
       {...rest}
       render={({ location }) =>
-        (user.email && isAdmin) ? (
+        user.email && isAdmin ? (
           children
         ) : (
           <Redirect
