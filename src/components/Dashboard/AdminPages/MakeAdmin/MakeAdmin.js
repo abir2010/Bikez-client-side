@@ -15,7 +15,7 @@ const MakeAdmin = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        if (data.modifiedCount > 0 || data.upsertedId) {
+        if (data.modifiedCount > 0) {
           alert("Successfully added an Admin");
           if (alert) {
             history.push("/dashboard");
