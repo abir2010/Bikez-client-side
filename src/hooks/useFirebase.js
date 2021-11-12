@@ -109,14 +109,14 @@ const useFirebase = () => {
   };
 
   useEffect(() => {
-    fetch(`http://localhost:5000/users/${user.email}`)
+    fetch(`https://glacial-mesa-21372.herokuapp.com/users/${user.email}`)
       .then((res) => res.json())
       .then((data) => setIsAdmin(data.admin));
   }, [user.email]);
 
   const saveUser = (email, displayName, method) => {
     const newUser = { email, displayName };
-    fetch("http://localhost:5000/users", {
+    fetch("https://glacial-mesa-21372.herokuapp.com/users", {
       method: method,
       headers: {
         "content-type": "application/json",

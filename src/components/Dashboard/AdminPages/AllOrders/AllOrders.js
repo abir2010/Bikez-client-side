@@ -4,7 +4,7 @@ import SingleOrder from "../SingleOrder/SingleOrder";
 const AllOrders = () => {
   const [orders, setOrders] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/allorders")
+    fetch("https://glacial-mesa-21372.herokuapp.com/allorders")
       .then((res) => res.json())
       .then((data) => setOrders(data));
   }, []);
@@ -13,7 +13,7 @@ const AllOrders = () => {
     if (!dialogue) {
       return;
     } else {
-      fetch(`http://localhost:5000/orders?id=${id}`, {
+      fetch(`https://glacial-mesa-21372.herokuapp.com/orders?id=${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())
@@ -27,7 +27,7 @@ const AllOrders = () => {
     }
   };
   const handleApproveBtn = (id) => {
-    fetch(`http://localhost:5000/orders?id=${id}`, {
+    fetch(`https://glacial-mesa-21372.herokuapp.com/orders?id=${id}`, {
       method: "PUT",
     })
       .then((res) => res.json())
@@ -42,37 +42,37 @@ const AllOrders = () => {
   };
   return (
     <div>
-      <div class="flex flex-col">
-        <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-          <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-16">
-            <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
-              <table class="min-w-full divide-y divide-gray-200">
-                <thead class="bg-gray-50">
+      <div className="flex flex-col">
+        <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+          <div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-16">
+            <div className="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+              <table className="min-w-full divide-y divide-gray-200">
+                <thead className="bg-gray-50">
                   <tr>
                     <th
                       scope="col"
-                      class="px-6 py-3 text-left text-sm font-medium text-blue-900 uppercase tracking-wider"
+                      className="px-6 py-3 text-left text-sm font-medium text-blue-900 uppercase tracking-wider"
                     >
                       ORDERED BY
                     </th>
                     <th
                       scope="col"
-                      class="px-6 py-3 text-left text-sm font-medium text-blue-900 uppercase tracking-wider"
+                      className="px-6 py-3 text-left text-sm font-medium text-blue-900 uppercase tracking-wider"
                     >
                       PRODUCT NAME & DELIVERY ADDRESS
                     </th>
                     <th
                       scope="col"
-                      class="px-6 py-3 text-left text-sm font-medium text-blue-900 uppercase tracking-wider"
+                      className="px-6 py-3 text-left text-sm font-medium text-blue-900 uppercase tracking-wider"
                     >
                       STATUS
                     </th>
-                    <th scope="col" class="relative px-6 py-3">
-                      <span class="sr-only">Edit</span>
+                    <th scope="col" className="relative px-6 py-3">
+                      <span className="sr-only">Edit</span>
                     </th>
                   </tr>
                 </thead>
-                <tbody class="bg-white divide-y divide-gray-200">
+                <tbody className="bg-white divide-y divide-gray-200">
                   {orders.map((order) => (
                     <SingleOrder
                       key={order._id}

@@ -16,7 +16,7 @@ const AddProduct = () => {
       price: parseInt(priceRef.current.value),
     };
     // console.log(review);
-    fetch("http://localhost:5000/products", {
+    fetch("https://glacial-mesa-21372.herokuapp.com/products", {
       method: "POST",
       headers: {
         "content-type": "application/json",

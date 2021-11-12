@@ -5,32 +5,34 @@ const ManageProduct = (props) => {
   const { handleDelteBtn } = props;
   return (
     <tr>
-      <td class="px-6 py-4 whitespace-nowrap">
-        <div class="flex items-center">
-          <div class="flex-shrink-0 h-16 w-16">
-            <img class="" src={image} alt="" />
+      <td className="px-6 py-4 whitespace-nowrap">
+        <div className="flex items-center">
+          <div className="flex-shrink-0 h-16 w-16">
+            <img className="" src={image} alt="" />
           </div>
-          <div class="ml-4">
-            <div class="text-sm font-medium text-gray-900 text-left">
+          <div className="ml-4">
+            <div className="text-sm font-medium text-gray-900 text-left">
               {name}
             </div>
-            <div class="text-sm text-gray-500">{description.slice(0, 50)}...</div>
+            <div className="text-sm text-gray-500">
+              {description.slice(0, 50)}...
+            </div>
           </div>
         </div>
       </td>
-      <td class="px-6 py-4 whitespace-nowrap">
-        <div class="text-sm text-gray-900 text-left">{_id}</div>
-        {/* <div class="text-sm text-gray-500 text-left">{userAddress}</div> */}
+      <td className="px-6 py-4 whitespace-nowrap">
+        <div className="text-sm text-gray-900 text-left">{_id}</div>
+        {/* <div className="text-sm text-gray-500 text-left">{userAddress}</div> */}
       </td>
-      <td class="px-6 py-4 whitespace-nowrap text-left">
-        <span class="px-2 py-1 text-xs font-bold rounded-full bg-blue-200 text-blue-700">
+      <td className="px-6 py-4 whitespace-nowrap text-left">
+        <span className="px-2 py-1 text-xs font-bold rounded-full bg-blue-200 text-blue-700">
           $ {price}
         </span>
       </td>
-      <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+      <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
         <button
           onClick={() => handleDelteBtn(_id)}
-          class="text-white px-2 py-1 bg-red-500 hover:bg-red-600 hover:text-gray-100"
+          className="text-white px-2 py-1 bg-red-500 hover:bg-red-600 hover:text-gray-100"
         >
           DELETE
         </button>

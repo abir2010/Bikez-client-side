@@ -6,7 +6,7 @@ const MakeAdmin = () => {
   const emailRef = useRef();
   const handleSubmit = (e) => {
     const doc = { email: emailRef.current.value };
-    fetch("http://localhost:5000/allusers", {
+    fetch("https://glacial-mesa-21372.herokuapp.com/allusers", {
       method: "PUT",
       headers: {
         "content-type": "application/json",

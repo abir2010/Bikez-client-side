@@ -6,7 +6,7 @@ const MyOrders = () => {
   const { user } = useAuth();
   const [orders, setOrders] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:5000/orders?email=${user.email}`)
+    fetch(`https://glacial-mesa-21372.herokuapp.com/orders?email=${user.email}`)
       .then((res) => res.json())
       .then((data) => setOrders(data));
   }, []);
@@ -15,7 +15,7 @@ const MyOrders = () => {
     if (!dialogue) {
       return;
     } else {
-      fetch(`http://localhost:5000/orders?id=${id}`, {
+      fetch(`https://glacial-mesa-21372.herokuapp.com/orders?id=${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())

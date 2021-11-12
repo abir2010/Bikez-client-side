@@ -5,20 +5,19 @@ import CardBarChart from "../../Cards/CardBarChart";
 import CardLineChart from "../../Cards/CardLineChart";
 import CardPageVisits from "../../Cards/CardPageVisits";
 import CardSocialTraffic from "../../Cards/CardSocialTraffic";
-import CardStats from "../../Cards/CardStats";
 
 const DashBoardHome = () => {
-  const { user,isAdmin } = useAuth();
+  const { user, isAdmin } = useAuth();
   return (
     <div>
       {!isAdmin ? (
         <div className="lg:px-20 lg:py-8 rounded-xl">
-          <section class="text-gray-100 bg-blue-900 lg:mt-12 body-font">
-            <div class="container lg:px-5 mt-4 mx-auto flex flex-wrap items-center">
-              <div class="lg:w-3/5 md:w-1/2 md:pr-16 lg:pr-0 pr-0 w-full">
+          <section className="text-gray-100 bg-blue-900 lg:mt-12 body-font">
+            <div className="container lg:px-5 mt-4 mx-auto flex flex-wrap items-center">
+              <div className="lg:w-3/5 md:w-1/2 md:pr-16 lg:pr-0 pr-0 w-full">
                 <img src={dashboard_img} alt="" />
               </div>
-              <div class="lg:w-2/6 md:w-1/2 rounded-lg py-8 px-4 lg:px-0 flex flex-col md:ml-auto w-full mt-10 md:mt-0">
+              <div className="lg:w-2/6 md:w-1/2 rounded-lg py-8 px-4 lg:px-0 flex flex-col md:ml-auto w-full mt-10 md:mt-0">
                 <p className="text-3xl text-left font-bold text-white heading">
                   <span className="text-red-500">WELCOME</span> <br />{" "}
                   <span className="text-5xl">{user?.displayName}</span>

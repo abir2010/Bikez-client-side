@@ -35,7 +35,7 @@ const PlaceOrder = () => {
       orderDate: new Date(),
       status: "Pending",
     };
-    fetch("http://localhost:5000/orders", {
+    fetch("https://glacial-mesa-21372.herokuapp.com/orders", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -55,7 +55,7 @@ const PlaceOrder = () => {
   };
 
   useEffect(() => {
-    fetch("http://localhost:5000/products")
+    fetch("https://glacial-mesa-21372.herokuapp.com/products")
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, []);

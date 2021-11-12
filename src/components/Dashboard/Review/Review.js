@@ -19,7 +19,7 @@ const Review = () => {
       userRating: parseInt(ratingRef.current.value),
     };
     // console.log(review);
-    fetch("http://localhost:5000/reviews", {
+    fetch("https://glacial-mesa-21372.herokuapp.com/reviews", {
       method: "POST",
       headers: {
         "content-type": "application/json",
