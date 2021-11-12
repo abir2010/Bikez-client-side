@@ -1,8 +1,17 @@
-# Getting Started with Create React App
+## BIKEZ Online Shop
+Bikez shop is an e-commerce website for by-cycles.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Live site link here [Bikez Online Shop](https://bikez-123.web.app/).
 
-## Available Scripts
+### Description
+* Bikez shop is a platform where someone can find their favourite by-cycle through online.
+* An user can shop and save for later.
+* In the dashboard section user can see his list of choosen product from he/she can cancel the order also.
+* User can login using Google or creating a free account.
+* User can review about the website and can give rating about the website.
+* Overall an user can get full experience of an e-commerce website from here.
+
+### Available Scripts
 
 In the project directory, you can run:
 
