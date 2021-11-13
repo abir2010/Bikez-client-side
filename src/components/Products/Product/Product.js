@@ -9,6 +9,7 @@ const Product = (props) => {
   const { _id, name, description, price, image } = props.product;
   return (
     <div
+      onClick={() => history.push(`/placeorder/${_id}`)}
       className="p-4 lg:p-8 md:w-1/3 card"
       data-aos="fade-down"
       data-aos-delay="10"
