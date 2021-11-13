@@ -70,7 +70,7 @@ const Login = () => {
             </button>
             <div>
               <h2 className="text-xs text-indigo-400 tracking-widest font-medium title-font mt-2">
-                Already registered?{" "}
+                Need to create account?{" "}
                 <Link className="text-white text-sm" to="/register">
                   Register Here
                 </Link>
@@ -179,13 +179,3 @@ const Login = () => {
 };
 
 export default Login;
-
-// {user?.email ? (
-//   <>
-//     <button onClick={logOut} className="bg-red-500 p-2 rounded-lg">Log out</button>
-//     <p className="text-2xl font-bold text-red-400">{user?.displayName}</p>
-//     <p className="text-xl font-bold text-red-400">{user?.email}</p>
-//   </>
-// ) : (
-//   <button onClick={()=>handleGoogleSignIn(location,history)} className="bg-red-500 p-2 rounded-lg">Google log in</button>
-// )}

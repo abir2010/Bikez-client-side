@@ -24,6 +24,7 @@ const Banner = () => {
               our free, fast delivery and local support and you can rest assured
               knowing you are getting the best deal on your new bike.
             </p>
+            <button></button>
           </div>
         </div>
       </section>

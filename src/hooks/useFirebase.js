@@ -34,7 +34,13 @@ const useFirebase = () => {
       setIsLoading(false);
     });
     return () => unsubscribed;
-  }, []);
+  }, [auth]);
+
+  useEffect(() => {
+    fetch(`https://glacial-mesa-21372.herokuapp.com/users/${user.email}`)
+      .then((res) => res.json())
+      .then((data) => setIsAdmin(data.admin));
+  }, [user.email]);
 
   const newUserSignUp = (email, password, name, history) => {
     setIsLoading(true);
@@ -68,7 +74,7 @@ const useFirebase = () => {
     setIsLoading(true);
     signInWithEmailAndPassword(auth, email, password)
       .then((result) => {
-        const redirect_uri = location?.state?.from || "/home";
+        const redirect_uri = location?.state?.from || "/dashboard";
         history.replace(redirect_uri);
         setUser(result.user);
         setError("");
@@ -83,11 +89,11 @@ const useFirebase = () => {
     setIsLoading(true);
     signInWithPopup(auth, googleProvider)
       .then((result) => {
-        const redirect_uri = location?.state?.from || "/home";
-        history.replace(redirect_uri);
         setUser(result.user);
         saveUser(result.user.email, result.user.displayName, "PUT");
         setError("");
+        const redirect_uri = location?.state?.from || "/dashboard";
+        history.replace(redirect_uri);
       })
       .catch((error) => {
         setError(error.message);
@@ -107,12 +113,6 @@ const useFirebase = () => {
       })
       .finally(() => setIsLoading(false));
   };
-
-  useEffect(() => {
-    fetch(`https://glacial-mesa-21372.herokuapp.com/users/${user.email}`)
-      .then((res) => res.json())
-      .then((data) => setIsAdmin(data.admin));
-  }, [user.email]);
 
   const saveUser = (email, displayName, method) => {
     const newUser = { email, displayName };

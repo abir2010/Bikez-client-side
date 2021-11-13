@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
 import header_icon from "../../../images/Icon/icons8-bicycle-50.png";
 import cart_icon from "../../../images/Icon/Group.png";
+import './Header.css';
 
 const Header = () => {
   const { user, logOut } = useAuth();
@@ -18,29 +19,29 @@ const Header = () => {
         </Link>
         <ul className="md:ml-auto md:mr-auto flex flex-wrap items-center justify-center">
           <li>
-            <Link to="/home" className="mr-5 hover:text-red-500">
+            <Link to="/home" className="mr-5 nav-item hover:text-red-500">
               HOMEPAGE
             </Link>
           </li>
           <li>
-            <Link to="/bikes" className="mr-5 hover:text-red-500">
+            <Link to="/bikes" className="mr-5 nav-item hover:text-red-500">
               BIKES
             </Link>
           </li>
           {user?.email && (
             <li>
-              <Link to="/dashboard" className="mr-5 hover:text-red-500">
+              <Link to="/dashboard" className="mr-5 nav-item hover:text-red-500">
                 DASHBOARD
               </Link>
             </li>
           )}
           <li>
-            <Link to="/about" className="mr-5 hover:text-red-500">
+            <Link to="/about" className="mr-5 nav-item hover:text-red-500">
               ABOUT
             </Link>
           </li>
           <li>
-            <Link to="/contact" className="mr-5 hover:text-red-500">
+            <Link to="/contact" className="mr-5 nav-item hover:text-red-500">
               CONTACT
             </Link>
           </li>

@@ -7,7 +7,7 @@ const Footer = () => {
     <footer className="">
       <div className="container px-5 pb-2 pt-12 mx-auto">
         <div className="flex flex-wrap md:text-left text-center order-first">
-          <div className="lg:w-1/4 md:w-1/2 w-full px-4 text-white">
+          <div className="lg:w-1/4 md:w-1/2 w-full px-4 text-white flex justify-center lg:block">
             <div>
               <img src={footer_icon} alt="" />
               <h2 className="font-bold tracking-widest text-2xl mb-3">
@@ -79,7 +79,7 @@ const Footer = () => {
                   id="footer-field"
                   name="footer-field"
                   placeholder="Your e-mail"
-                  className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:bg-transparent focus:ring-2 focus:ring-indigo-200 focus:border-indigo-500 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                  className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:bg-transparent focus:ring-2 focus:ring-indigo-200 focus:border-indigo-500 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
                 />
               </div>
               <button className="lg:mt-2 xl:mt-0 flex-shrink-0 inline-flex text-red-500 bg-white border-0 py-2 px-6 focus:outline-none hover:bg-red-500 hover:text-white">

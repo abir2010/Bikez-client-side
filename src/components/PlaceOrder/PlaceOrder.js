@@ -72,6 +72,7 @@ const PlaceOrder = () => {
           <img className="w-full" src={pd?.image} alt="" />
           <div className="px-6">
             <div className="font-bold text-xl mb-2">{pd?.name}</div>
+            <div className="font-bold text-lg text-blue-900 mb-2">$ {pd?.price}</div>
             <p className="text-gray-700 text-base">{pd?.description}</p>
           </div>
         </div>

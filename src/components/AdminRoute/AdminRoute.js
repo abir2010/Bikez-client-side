@@ -3,7 +3,7 @@ import { Redirect, Route } from "react-router";
 import useAuth from "../../hooks/useAuth";
 
 const AdminRoute = ({ children, ...rest }) => {
-  const { user, isAdmin, isLoading } = useAuth();
+  const { user, isAdmin } = useAuth();
   if (!isAdmin) {
     return (
       <div className="flex items-center justify-center space-x-2">
@@ -22,7 +22,7 @@ const AdminRoute = ({ children, ...rest }) => {
         ) : (
           <Redirect
             to={{
-              pathname: "/",
+              pathname: "/dashboard",
               state: { from: location },
             }}
           />
