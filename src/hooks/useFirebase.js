@@ -74,7 +74,7 @@ const useFirebase = () => {
     setIsLoading(true);
     signInWithEmailAndPassword(auth, email, password)
       .then((result) => {
-        const redirect_uri = location?.state?.from || "/dashboard";
+        const redirect_uri = location?.state?.from || "/home";
         history.replace(redirect_uri);
         setUser(result.user);
         setError("");
@@ -92,7 +92,7 @@ const useFirebase = () => {
         setUser(result.user);
         saveUser(result.user.email, result.user.displayName, "PUT");
         setError("");
-        const redirect_uri = location?.state?.from || "/dashboard";
+        const redirect_uri = location?.state?.from || "/home";
         history.replace(redirect_uri);
       })
       .catch((error) => {
