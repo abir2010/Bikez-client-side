@@ -1,6 +1,9 @@
 import React from "react";
 import { useHistory } from "react-router";
 import notfound from "../../images/banner/notfound.jpg";
+import AOS from "aos";
+import "aos/dist/aos.css";
+AOS.init();
 
 const Notfound = () => {
   const history = useHistory();
@@ -18,6 +21,7 @@ const Notfound = () => {
               <button
                 onClick={() => history.push("/home")}
                 className="inline-flex text-xl text-gray-50 items-center bg-red-500 border-0 py-2 px-8 focus:outline-none hover:bg-white hover:text-red-500 mt-4 md:mt-0"
+                data-aos="fade-down"
               >
                 Go back to Home
               </button>

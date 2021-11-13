@@ -2,12 +2,24 @@ import React from "react";
 import Footer from "../Shared/Footer/Footer";
 import Header from "../Shared/Header/Header";
 import contact from "../../images/banner/contact.png";
+import AOS from "aos";
+import "aos/dist/aos.css";
+AOS.init();
 
 const Contact = () => {
   return (
     <div>
       <Header />
-      <section className="text-gray-100 bg-blue-900 mt-12 body-font">
+      <section
+        className="text-gray-100 bg-blue-900 body-font"
+        data-aos="fade-down"
+        data-aos-delay="50"
+        data-aos-duration="400"
+        data-aos-easing="ease-in-out"
+        data-aos-mirror="true"
+        data-aos-once="false"
+        data-aos-anchor-placement="top-center"
+      >
         <div className="container lg:px-5 mt-4 mx-auto flex flex-wrap items-center">
           <div className="lg:w-3/5 md:w-1/2 md:pr-16 lg:pr-0 pr-0 w-full">
             <img src={contact} alt="" />
@@ -73,7 +85,10 @@ const Contact = () => {
                 className="w-full bg-transparent border-b-2 h-32 border-gray-300 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
               />
             </div>
-            <button className="text-white bg-red-500 border-0 py-2 px-8 focus:outline-none hover:bg-red-600 text-lg">
+            <button
+              className="text-white bg-red-500 border-0 py-2 px-8 focus:outline-none hover:bg-red-600 text-lg"
+              data-aos="zoom-in"
+            >
               CONTACT
             </button>
           </div>

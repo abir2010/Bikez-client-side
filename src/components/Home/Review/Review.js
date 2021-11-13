@@ -5,7 +5,16 @@ const Review = (props) => {
   const { userName, userEmail, urserImage, userMessage, userRating } =
     props.review;
   return (
-    <div className="container flex flex-col w-full max-w-lg p-6 mx-auto divide-y rounded-md divide-coolGray-700 dark:bg-coolGray-900 dark:text-coolGray-100">
+    <div
+      className="container flex flex-col w-full max-w-lg p-6 mx-auto divide-y rounded-md divide-coolGray-700"
+      data-aos="fade-up"
+      data-aos-delay="10"
+      data-aos-duration="400"
+      data-aos-easing="ease-in-out"
+      data-aos-mirror="true"
+      data-aos-once="false"
+      data-aos-anchor-placement="top-center"
+    >
       <div className="flex justify-between p-4">
         <div className="flex space-x-4">
           <div>

@@ -1,9 +1,20 @@
 import React from "react";
 import service_img from "../../../images/servicing/Annotation 2021-11-10 104144.png";
+import AOS from "aos";
+import "aos/dist/aos.css";
+AOS.init();
 
 const Servicing = () => {
   return (
-    <div className="my-8">
+    <div
+      data-aos="fade-right"
+      data-aos-delay="10"
+      data-aos-duration="400"
+      data-aos-easing="ease-in-out"
+      data-aos-mirror="true"
+      data-aos-once="false"
+      data-aos-anchor-placement="top-center"
+    >
       <p className="text-4xl text-gray-900 font-bold heading lg:pb-8">
         SERVICING <span className="text-red-500">CENTER</span>
       </p>
@@ -31,7 +42,10 @@ const Servicing = () => {
               <br /> adjustment and installation
             </p>
             <div className="flex justify-end">
-              <button className="inline-flex text-sm text-gray-50 items-center bg-red-500 border-0 py-1 px-6 focus:outline-none hover:bg-blue-900 mt-4 md:mt-0">
+              <button
+                className="inline-flex text-sm text-gray-50 items-center bg-red-500 border-0 py-1 px-6 focus:outline-none hover:bg-blue-900 mt-4 md:mt-0"
+                data-aos="zoom-in"
+              >
                 READ MORE
               </button>
             </div>
@@ -45,7 +59,10 @@ const Servicing = () => {
               <br /> after you purchase them
             </p>
             <div className="flex justify-end">
-              <button className="inline-flex text-sm text-gray-50 items-center bg-red-500 border-0 py-1 px-6 focus:outline-none hover:bg-blue-900 mt-4 md:mt-0">
+              <button
+                className="inline-flex text-sm text-gray-50 items-center bg-red-500 border-0 py-1 px-6 focus:outline-none hover:bg-blue-900 mt-4 md:mt-0"
+                data-aos="zoom-in"
+              >
                 READ MORE
               </button>
             </div>
@@ -60,7 +77,10 @@ const Servicing = () => {
               <br /> we will gonna love it
             </p>
             <div className="flex justify-end">
-              <button className="inline-flex text-sm text-gray-50 items-center bg-red-500 border-0 py-1 px-6 focus:outline-none hover:bg-blue-900 mt-4 md:mt-0">
+              <button
+                className="inline-flex text-sm text-gray-50 items-center bg-red-500 border-0 py-1 px-6 focus:outline-none hover:bg-blue-900 mt-4 md:mt-0"
+                data-aos="zoom-in"
+              >
                 READ MORE
               </button>
             </div>

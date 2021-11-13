@@ -4,6 +4,9 @@ import useAuth from "../../../hooks/useAuth";
 import Header from "../../Shared/Header/Header";
 import cycle from "../../../images/banner/Annotation 2021-11-11 111234.png";
 import { Link } from "react-router-dom";
+import AOS from "aos";
+import "aos/dist/aos.css";
+AOS.init();
 
 const Login = () => {
   const emailRef = useRef();
@@ -14,7 +17,16 @@ const Login = () => {
   return (
     <div>
       <Header />
-      <section className="text-gray-100 bg-blue-900 body-font">
+      <section
+        className="text-gray-100 bg-blue-900 body-font"
+        data-aos="fade-down"
+        data-aos-delay="50"
+        data-aos-duration="400"
+        data-aos-easing="ease-in-out"
+        data-aos-mirror="true"
+        data-aos-once="false"
+        data-aos-anchor-placement="top-center"
+      >
         <div className="container lg:px-5 mt-4 mx-auto flex flex-wrap items-center">
           <div className="lg:w-3/5 md:w-1/2 md:pr-16 lg:pr-0 pr-0 w-full">
             <img src={cycle} alt="" />

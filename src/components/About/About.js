@@ -2,12 +2,24 @@ import React from "react";
 import about from "../../images/banner/about.png";
 import Footer from "../Shared/Footer/Footer";
 import Header from "../Shared/Header/Header";
+import AOS from "aos";
+import "aos/dist/aos.css";
+AOS.init();
 
 const About = () => {
   return (
     <div>
       <Header />
-      <section className="text-gray-100 bg-blue-900 mt-12 body-font">
+      <section
+        className="text-gray-100 bg-blue-900 body-font"
+        data-aos="fade-down"
+        data-aos-delay="50"
+        data-aos-duration="400"
+        data-aos-easing="ease-in-out"
+        data-aos-mirror="true"
+        data-aos-once="false"
+        data-aos-anchor-placement="top-center"
+      >
         <div className="container lg:px-5 mt-4 mx-auto flex flex-wrap items-center">
           <div className="lg:w-3/5 md:w-1/2 md:pr-16 lg:pr-0 pr-0 w-full">
             <img src={about} alt="" />
@@ -26,7 +38,16 @@ const About = () => {
           </div>
         </div>
       </section>
-      <section className="flex justify-center">
+      <section
+        className="flex justify-center"
+        data-aos="fade-up"
+        data-aos-delay="50"
+        data-aos-duration="400"
+        data-aos-easing="ease-in-out"
+        data-aos-mirror="true"
+        data-aos-once="false"
+        data-aos-anchor-placement="top-center"
+      >
         <div>
           <section className="container lg:px-36 px-4 text-gray-500 mt-12 body-font">
             But it’s not just the incredible value that has made us so popular.
@@ -56,7 +77,16 @@ const About = () => {
           </section>
         </div>
       </section>
-      <section className="text-gray-600 mt-24 mb-12 body-font">
+      <section
+        className="text-gray-600 mt-24 mb-12 body-font"
+        data-aos="fade-down"
+        data-aos-delay="50"
+        data-aos-duration="400"
+        data-aos-easing="ease-in-out"
+        data-aos-mirror="true"
+        data-aos-once="false"
+        data-aos-anchor-placement="top-center"
+      >
         <div className="container lg:px-5 py-4 mx-auto flex items-center md:flex-row flex-col">
           <div className="flex flex-col md:pr-10 md:mb-0 mb-6 pr-0 w-full md:w-auto md:text-left text-center">
             <h2 className="text-xs text-indigo-500 tracking-widest font-medium title-font mb-1">

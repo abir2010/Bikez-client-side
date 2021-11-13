@@ -1,9 +1,20 @@
 import React from "react";
 import top from "../../../images/banner/top.png";
+import AOS from "aos";
+import "aos/dist/aos.css";
+AOS.init();
 
 const Banner = () => {
   return (
-    <div>
+    <div
+      data-aos="fade-down"
+      data-aos-delay="50"
+      data-aos-duration="500"
+      data-aos-easing="ease-in-out"
+      data-aos-mirror="true"
+      data-aos-once="false"
+      data-aos-anchor-placement="top-center"
+    >
       <section className="text-gray-100 bg-blue-900 body-font">
         <div className="container lg:px-16 mt-4 mx-auto flex flex-wrap items-center">
           <div className="lg:w-3/5 md:w-1/2 md:pr-16 lg:pr-0 pr-0 w-full">

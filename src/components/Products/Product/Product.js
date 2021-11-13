@@ -1,11 +1,20 @@
 import React from "react";
 import { useHistory } from "react-router";
+import AOS from "aos";
+import "aos/dist/aos.css";
+AOS.init();
 
 const Product = (props) => {
   const history = useHistory();
   const { _id, name, description, price, image } = props.product;
   return (
-    <div className="p-4 lg:p-8 md:w-1/3 card">
+    <div
+      className="p-4 lg:p-8 md:w-1/3 card"
+      data-aos="fade-down"
+      data-aos-delay="50"
+      data-aos-duration="400"
+      data-aos-anchor-placement="top-center"
+    >
       <div className="h-full overflow-hidden">
         <img
           className="lg:h-56 xl:h-64 md:h-36 w-full object-cover object-center"
@@ -24,6 +33,7 @@ const Product = (props) => {
             <button
               onClick={() => history.push(`/placeorder/${_id}`)}
               className="inline-flex text-gray-50 items-center text-sm bg-red-500 border-0 py-1 px-6 focus:outline-none hover:bg-blue-900 mt-4 md:mt-0 lg:ml-4"
+              data-aos="zoom-in"
             >
               PURCHASE
             </button>
