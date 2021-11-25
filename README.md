@@ -11,6 +11,8 @@ Live site link here [Bikez Online Shop](https://bikez-123.web.app/).
 * User can review about the website and can give rating about the website.
 * Overall an user can get full experience of an e-commerce website from here.
 
+N.B. Use admin@admin.com with password 123456 to experience the website as an admin.
+
 ### Available Scripts
 
 In the project directory, you can run:
